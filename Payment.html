@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+    <title>Payment Check-Out </title>
+<!-- Responsive -->
+   	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale: 1.0, maximum-scale=1.0,user-scalable=no" />
+<!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<!-- CSS -->
+		 <link href="css/pay.css" rel="stylesheet" media="screen">
+<!-- Google Fonts -->
+		 <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<!-- JS-->
+		 <script src="js/pay.js"></script>
+<!-- Jquery CDN -->
+		 <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+</head>
+<body>
+	<script>
+<!-- Accordian --> 
+	 var main=function(){
+    $('.article').click(function(){
+        $('.article').removeClass('.current');
+        $('.description').hide();
+         $(this).addClass('.current');
+          $(this).children('.description').show({heightStyle: "content",
+           autoHeight: true,}); 
+      });
+     };
+		$(document).ready(main);
+
+<!-- Onclick CVV Show --> 
+		$(document).ready(function () {
+                    $('#id_radio1').click(function () {
+                       $('#CVV-box2').hide('fast');
+                       $('#CVV-box1').show('fast');
+                });
+                $('#id_radio2').click(function () {
+                      $('#CVV-box1').hide('fast');
+                      $('#CVV-box2').show('fast');
+                 });
+      });
+<!-- Form1 Validation-Saved Card --> 
+		function validateForm1() {
+    var a = document.forms["myForm1"]["CVVNumber"].value;
+		if (a == null || a == "") {
+        alert("CVV Number must be filled out");
+        return false;
+		    }
+		else {
+        alert("Transaction is processed");
+        return false;
+		    }
+}
+<!-- Form2 Validation-Credit Card --> 
+				function validateForm2() {
+    var x = document.forms["myForm2"]["cardName"].value;
+		var y = document.forms["myForm2"]["CardNumber"].value;
+		var ya = document.forms["myForm2"]["CardNumber1"].value;
+		var yb = document.forms["myForm2"]["CardNumber2"].value;
+		var yc = document.forms["myForm2"]["CardNumber3"].value;
+		var z = document.forms["myForm2"]["CVVNumber"].value;
+    if (x == null || x == "") {
+        alert("Card Name must be filled out");
+        return false;	}
+		 else if(y == null || y == "") {
+        alert("Card Number must be filled out");
+        return false;
+				  }
+		else if(ya == null || ya == "") {
+				alert("Card Number must be filled out");
+        return false;
+				  }
+		else if(yb == null || yb == "") {
+        alert("Card Number must be filled out");
+        return false;
+				  }
+		else if(yc == null || yc == "") {
+        alert("Card Number must be filled out");
+        return false;
+				  }
+		else if (z == null || z == "") {
+        alert("CVV Number must be filled out");
+        return false;
+		    }
+		else {
+        alert("Transaction is processed");
+        return false;
+		    }
+}
+
+<!-- Form3 Validation-Credit Card --> 
+				function validateForm3() {
+    var x = document.forms["myForm3"]["cardName"].value;
+		var y = document.forms["myForm3"]["CardNumber"].value;
+		var ya = document.forms["myForm3"]["CardNumber1"].value;
+		var yb = document.forms["myForm3"]["CardNumber2"].value;
+		var yc = document.forms["myForm3"]["CardNumber3"].value;
+		var z = document.forms["myForm3"]["CVVNumber"].value;
+    if (x == null || x == "") {
+        alert("Card Name must be filled out");
+        return false;	}
+		 else if(y == null || y == "") {
+        alert("Card Number must be filled out");
+        return false;
+				  }
+		else if(ya == null || ya == "") {
+				alert("Card Number must be filled out");
+        return false;
+				  }
+		else if(yb == null || yb == "") {
+        alert("Card Number must be filled out");
+        return false;
+				  }
+		else if(yc == null || yc == "") {
+        alert("Card Number must be filled out");
+        return false;
+				  }
+		else if (z == null || z == "") {
+        alert("CVV Number must be filled out");
+        return false;
+		    }
+		else {
+        alert("Transaction is processed");
+        return false;
+		    }
+}
+				
+	</script>
+	   
+<!-- Header -->
+    <header>
+			<section class="banner">
+				<div class="texture-overlay"></div>
+				<div class="container">
+					<div class="row nav-wrapper">
+						<div class="col-md-6 col-sm-6 col-xs-6 text-left">
+							<div class="logo">
+							<a href="#" class="logo-white"><img src="img/logo.png" alt="Logo"/></a>
+							</div>
+						</div>
+					
+					</div>
+				</div>
+			</section>
+		</header>
+<!-- Header Close -->
+		
+<!-- Payment Section -->
+	<div class="section">
+			<div class="articles container">
+<!-- Bootstrap Centered Tabs -->
+			<div class = "navtabs">
+				<ul class="nav nav-pills" id="pills-first">
+					<li><a href="#tab_a">ORDER DETAILS</a></li>
+					<li><a href="#tab_b">SHIPPING DETAILS</a></li>
+					<li class="active"><a href="#tab_c">PAYMENT CHECK-OUT</a></li>
+					<li><a href="#tab_d">CONFIRMATION</a></li>
+				</ul>
+			
+	<div class="tab-content">
+    <div class="tab-pane" id="tab_a">
+             <h4>We will be back soon</h4>
+            <p>for inquires, email us at hello@fulfil.io</p>
+    </div>
+    <div class="tab-pane" id="tab_b">
+             <h4>We will be back soon</h4>
+            <p>for inquires, email us at hello@fulfil.io</p>
+    </div>
+				
+    <div class="tab-pane active" id="tab_c">
+				
+<!-- Payment Accordian Start -->
+      <div class="article">
+<!-- Saved Card -->
+        <div class="item row">
+						 <p class="title"><img src="./img/savedcards.png" type="" alt=""/> Saved Cards </p>
+				</div>
+        <div class="description row">
+<!-- Form1 -->
+							<form name="myForm" id="myForm1" onsubmit="return validateForm1()">
+								<label><input type="radio" class="trigger" id="id_radio1" name="card"/>    <img src="./img/amex.png" type="" alt=""/>      37xxxxxxxxx005
+								<div id="CVV-box1"> <!-- onclick CVV Number Verification -->
+								CVV:<input type="password" class="" id="" size="4"maxlength="3" name="CVVNumber" /></label><br/>
+								</div> <br/>
+								<br/>
+								
+								<label><input type="radio" class="trigger" id="id_radio2" name="card" />    <img src="./img/visa.png" type="" alt=""/>   77xxxxxxxxx057	<div id="CVV-box2"> <!-- onclick CVV Number Verification --> CVV:<input type="password" class="" id="" size="4"maxlength="3" name="CVVNumber" /></label><br/>
+								<br/> 
+										</div>
+							 <br/>
+							 <br/> 
+								<input type="submit" class="confirmation" id="Submitbutton" name="submit" value="Make Payment"/>
+							</form>
+				</div>
+<!-- Saved Card Close -->
+			</div>
+<!--Pay Via Credit Card  -->
+      <div class="article">
+        <div class="item row">
+           <p class="title"><img src="./img/creditcard.png" type="" alt=""/> Credit Card</p>
+        </div>
+        <div class="description row">
+          
+<!-- Form 2  -->
+				<form name="myForm2" id="myForm" onsubmit="return validateForm2()">
+		<!-- Name on Card  -->
+							<div class="nametext">
+							<div class= "paysecure">
+							<img src="./img/secure.png"type="" alt=""/>
+							</div>
+							<br/>
+							<br/>
+							Name on Card:&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" class="nametext" id="" size="50"maxlength="25" name="cardName" />  
+							</div>
+		<!-- Select Card Type -->
+								<p> <label>Select Card Type: &nbsp                                    
+								<input type="radio" class="trigger" name="cardType" id="id_radio2" name="card" />  <img src="./img/visa.png" type="" alt=""/> 
+								
+								<input type="radio" class="trigger" name="cardType" id="id_radio2" name="card" />  <img src="./img/amex.png" type="" alt=""/>
+								
+								<input type="radio" class="trigger" name="cardType" id="id_radio2" name="card" />  <img src="./img/master.png" type="" alt=""/> </label>
+								<br/>
+		<!-- Enter Card Number -->
+								<div id="CardNum"> 
+								Enter Card Number:&nbsp  <input type="text" class="" id="" size="4"maxlength="3" name="CardNumber" />  <input type="text" class="" id="" size="4"maxlength="3" name="CardNumber1" />  <input type="text" class="" id="" size="4"maxlength="3" name="CardNumber2"  />  <input type="text" class="" id="" size="4"maxlength="4" name="CardNumber3" />
+								</div>
+		<!-- Enter Expiry Date -->
+								Card Expiry Date:&nbsp&nbsp&nbsp&nbsp
+													<select id="month" name="month">
+													<option  value="January">Jan</option>
+													<option  value="February">Feb</option>
+													<option  value="March">Mar</option>
+													<option  value="April">Apr</option>
+													<option  value="May">May</option>
+													<option  value="June">Jun</option>
+													<option  value="July">Jul</option>
+													<option  value="August">Aug</option>
+													<option  value="September">Sep</option>
+													<option  value="October">Oct</option>
+													<option  value="November">Nov</option>
+													<option  value="December">Dec</option>
+											</select> 									
+											<select id="day" name="day">
+													<option  value="1">1</option>
+													<option  value="2">2</option>
+													<option  value="3">3</option>
+													<option  value="4">4</option>
+													<option  value="5">5</option>
+													<option  value="6">6</option>
+													<option  value="7">7</option>
+													<option  value="8">8</option>
+													<option  value="9">9</option>
+													<option  value="10">10</option>
+													<option  value="11">11</option>
+													<option  value="12">12</option>
+													<option  value="13">13</option>
+													<option  value="14">14</option>
+													<option  value="15">15</option>
+													<option  value="16">16</option>
+													<option  value="17">17</option>
+													<option  value="18">18</option>
+													<option  value="19">19</option>
+													<option  value="20">20</option>
+													<option  value="21">21</option>
+													<option  value="22">22</option>
+													<option  value="23">23</option>
+													<option  value="24">24</option>
+													<option  value="25">25</option>
+													<option  value="26">26</option>
+													<option  value="27">27</option>
+													<option  value="28">28</option>
+													<option  value="29">29</option>
+													<option  value="30">30</option>
+													<option  value="31">31</option>
+											</select>									
+											<select id="year" name="year">
+													<option  value="2012">2022</option>
+													<option  value="2013">2023</option>
+													<option  value="2014">2024</option>
+													<option  value="2015">2025</option>
+													<option  value="2016">2026</option>
+													<option  value="2013">2027</option>
+													<option  value="2014">2028</option>
+													<option value="2015">2029</option>
+													<option value="2016">2030</option>
+											</select>
+		<!-- Enter CVV Number -->
+								<div id="CVV-box">  
+								CVV:&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="password" class="" id="" size="4"maxlength="3" name="CVVNumber" />&nbsp<a href="https://www.cvvnumber.com/">CVV Number?</a></label><br/> 
+								</div>
+<!-- Add Credit Card details to Saved Cards-->
+								<input type="checkbox" class="" id="" name="SavedCard" />&nbsp Save Card Details for future Transaction
+								<br/>	
+								<br/>								
+								<input type="submit" class="confirmation" id="Submitbutton" name="submit" value="Make Payment"/>
+								</p> 
+								<br/>
+					</form>
+      </div>
+			</div>
+<!-- Credit Card Close -->
+     
+			
+<!-- Debit Card-->
+      <div class="article">
+        <div class="item row">
+          <p class="title"><img src="./img/debitcard.png" type="" alt=""/>Debit Card</p>
+        </div>
+        <div class="description row">
+<!-- Form 3  -->
+				<form name="myForm3" id="myForm" onsubmit="return validateForm3()">
+<!-- Name on Card  -->
+							<div class="nametext">
+							<div class= "paysecure">
+							<img src="./img/secure.png"type="" alt=""/>
+							</div>
+							<br/>
+							<br/>
+							Name on Card:&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" class="nametext" id="" size="50"maxlength="25" name="cardName" />  
+							</div>
+<!-- Select Card Type -->
+								<p> <label>Select Card Type: &nbsp                                    
+								<input type="radio" class="trigger" name="cardType" id="id_radio2" name="card" />  <img src="./img/visa.png" type="" alt=""/> 
+								
+								<input type="radio" class="trigger" name="cardType" id="id_radio2" name="card" />  <img src="./img/amex.png" type="" alt=""/>
+								
+								<input type="radio" class="trigger" name="cardType" id="id_radio2" name="card" />  <img src="./img/master.png" type="" alt=""/> </label>
+								<br/>
+<!-- Enter Card Number -->
+								<div id="CardNum"> 
+								Enter Card Number:&nbsp  <input type="text" class="" id="" size="4"maxlength="3" name="CardNumber" />  <input type="text" class="" id="" size="4"maxlength="3" name="CardNumber1" />  <input type="text" class="" id="" size="4"maxlength="3" name="CardNumber2"  />  <input type="text" class="" id="" size="4"maxlength="4" name="CardNumber3" />
+								</div>
+<!-- Enter Expiry Date -->
+								Card Expiry Date:&nbsp&nbsp&nbsp&nbsp
+													<select id="month" name="month">
+													<option  value="January">Jan</option>
+													<option  value="February">Feb</option>
+													<option  value="March">Mar</option>
+													<option  value="April">Apr</option>
+													<option  value="May">May</option>
+													<option  value="June">Jun</option>
+													<option  value="July">Jul</option>
+													<option  value="August">Aug</option>
+													<option  value="September">Sep</option>
+													<option  value="October">Oct</option>
+													<option  value="November">Nov</option>
+													<option  value="December">Dec</option>
+											</select> 									
+											<select id="day" name="day">
+													<option  value="1">1</option>
+													<option  value="2">2</option>
+													<option  value="3">3</option>
+													<option  value="4">4</option>
+													<option  value="5">5</option>
+													<option  value="6">6</option>
+													<option  value="7">7</option>
+													<option  value="8">8</option>
+													<option  value="9">9</option>
+													<option  value="10">10</option>
+													<option  value="11">11</option>
+													<option  value="12">12</option>
+													<option  value="13">13</option>
+													<option  value="14">14</option>
+													<option  value="15">15</option>
+													<option  value="16">16</option>
+													<option  value="17">17</option>
+													<option  value="18">18</option>
+													<option  value="19">19</option>
+													<option  value="20">20</option>
+													<option  value="21">21</option>
+													<option  value="22">22</option>
+													<option  value="23">23</option>
+													<option  value="24">24</option>
+													<option  value="25">25</option>
+													<option  value="26">26</option>
+													<option  value="27">27</option>
+													<option  value="28">28</option>
+													<option  value="29">29</option>
+													<option  value="30">30</option>
+													<option  value="31">31</option>
+											</select>									
+											<select id="year" name="year">
+													<option  value="2012">2022</option>
+													<option  value="2013">2023</option>
+													<option  value="2014">2024</option>
+													<option  value="2015">2025</option>
+													<option  value="2016">2026</option>
+													<option  value="2013">2027</option>
+													<option  value="2014">2028</option>
+													<option value="2015">2029</option>
+													<option value="2016">2030</option>
+											</select>
+<!-- Enter CVV Number -->
+								<div id="CVV-box">  
+								CVV:&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="password" class="" id="" size="4"maxlength="3" name="CVVNumber" />&nbsp<a href="https://www.cvvnumber.com/">CVV Number?</a></label><br/> 
+								</div>
+<!-- Add Credit Card details to Saved Cards-->
+								<input type="checkbox" class="" id="" name="SavedCard" />&nbsp Save Card Details for future Transaction
+								<br/>	
+								<br/>								
+								<input type="submit" class="confirmation" id="Submitbutton" name="submit" value="Make Payment"/>
+								</p> 
+								<br/>
+					</form>
+				</div>
+			</div>
+				<div class="article">
+							<div class="item row">
+							 <p class="title"><img src="./img/netbanking.png" type="" alt=""/> Net Banking</p>
+					</div>
+					<div class="description row">
+					Select Bank:&nbsp&nbsp&nbsp&nbsp
+							<select id="netBank" name="netBank">
+									<option  value="StandardCharted"><a href="https://ibank.standardchartered.co.in/">Standard Charted</a></option>
+									<option  value="HDFC"><a href="https://netbanking.hdfcbank.com">HDFC Pvt Ltd</a></option>
+									<option  value="ICICI"><a href="www.icicibank.com/safe-online-banking/safe-online-banking.page">ICICI Pvt Ltd</a></option>
+									<option  value="Axis"><a href="www.axisbank.com/pre-login/internetbanking_prelogin.aspx">Axis Bank</a></option>
+									<option  value="HSBC"><a href="www.hsbc.co.in/1/2/HUB_IDV2">HSBC Pvt Ltd</a></option>
+									
+							</select> 
+							<br/>
+							<br/>
+						<input type="submit" class="confirmation" id="Submitbutton" name="submit" value="Pay Online"/>													
+					</div>
+				</div>
+		</div><!--tab C Close-->
+	
+    <div class="tab-pane" id="tab_d">
+             <h4>We will be back soon</h4>
+            <p>for inquires, email us at hello@fulfil.io</p>
+    </div>
+</div> <!-- tab-content Close -->
+</div><!-- Nav Tabs Close -->
+
+</div><!--Articles Container Close-->
+</div><!--Section Close-->
+<!--Static footer-->
+			<footer>
+			<img src="./img/footer.png" type="" alt=""/>
+			</footer>
+			
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
+	<script>
+        $('#pills-first a').hover(function (e) {
+          e.preventDefault()
+          $(this).tab('show')
+       });
+    </script>
+
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="app.js"></script>
+
+</body>
+</html>
